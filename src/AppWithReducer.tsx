@@ -1,6 +1,6 @@
 import React, {useReducer, useState} from 'react';
 import './App.css';
-import {TaskType, Todolist} from './Todolist';
+import {Todolist} from './Todolist';
 import {v1} from 'uuid';
 import {AddItemForm} from './AddItemForm';
 import {
@@ -13,8 +13,7 @@ import {
    Paper,
    Switch,
    ThemeProvider,
-   Toolbar,
-   Typography
+   Toolbar
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton/IconButton";
 import {Menu} from "@mui/icons-material";
@@ -29,15 +28,7 @@ import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, tasksRed
 
 
 export type FilterValuesType = "all" | "active" | "completed";
-export type TodolistType = {
-   id: string
-   title: string
-   filter: FilterValuesType
-}
 
-export type TasksStateType = {
-   [key: string]: Array<TaskType>
-}
 type ThemeMode = 'dark' | 'light'
 
 function AppWithReducer() {
