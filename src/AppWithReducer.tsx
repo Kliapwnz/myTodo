@@ -1,20 +1,9 @@
-import React, {useReducer, useState} from 'react';
+import React, {useReducer} from 'react';
 import './App.css';
 import {Todolist} from './Todolist';
 import {v1} from 'uuid';
 import {AddItemForm} from './AddItemForm';
-import {
-   AppBar,
-   Button,
-   Container,
-   createTheme,
-   CssBaseline,
-   Grid,
-   Paper,
-   Switch,
-   ThemeProvider,
-   Toolbar
-} from "@mui/material";
+import {AppBar, Button, Container, Grid, Paper, Toolbar} from "@mui/material";
 import IconButton from "@mui/material/IconButton/IconButton";
 import {Menu} from "@mui/icons-material";
 import {
@@ -29,7 +18,7 @@ import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, tasksRed
 
 export type FilterValuesType = "all" | "active" | "completed";
 
-type ThemeMode = 'dark' | 'light'
+
 
 function AppWithReducer() {
    let todolistId1 = v1();
