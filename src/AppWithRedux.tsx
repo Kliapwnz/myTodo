@@ -1,7 +1,6 @@
-import React, {useReducer, useState} from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {TaskType, Todolist} from './Todolist';
-import {v1} from 'uuid';
 import {AddItemForm} from './AddItemForm';
 import {
    AppBar,
@@ -23,7 +22,7 @@ import {
    changeTodolistTitleAC,
    removeTodolistAC
 } from "./state/todolists-reducer";
-import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, tasksReducer} from "./state/tasks-reducer";
+import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC} from "./state/tasks-reducer";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "./state/store";
 
@@ -43,8 +42,6 @@ export type TasksStateType = {
 }
 
 function AppWithRedux() {
-   let todolistId1 = v1();
-   let todolistId2 = v1();
 
    let todolists = useSelector<AppRootStateType, Array<TodolistType>>(state => state.todolists)
 
@@ -128,10 +125,10 @@ function AppWithRedux() {
                         let tasksForTodolist = allTodolistTasks;
 
                         if (tl.filter === "active") {
-                           tasksForTodolist = allTodolistTasks.filter(t => t.isDone === false);
+                           tasksForTodolist = allTodolistTasks.filter(t => !t.isDone );
                         }
                         if (tl.filter === "completed") {
-                           tasksForTodolist = allTodolistTasks.filter(t => t.isDone === true);
+                           tasksForTodolist = allTodolistTasks.filter(t => t.isDone );
                         }
 
                         return <Grid key={tl.id} item>
