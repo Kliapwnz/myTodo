@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import './App.css';
 import {TaskType, Todolist} from './Todolist';
 import {AddItemForm} from './AddItemForm';
@@ -79,10 +79,10 @@ function AppWithRedux() {
       dispatch(changeTodolistTitleAC(id, title));
    }
 
-   function addTodolist(title: string) {
+   const addTodolist = useCallback ((title: string) => {
       dispatch(addTodolistAC(title));
 
-   }
+   },[])
 
    const [themeMode, setThemeMode] = useState<ThemeMode>('light')
 
