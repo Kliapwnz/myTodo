@@ -53,9 +53,9 @@ function AppWithRedux() {
       dispatch(removeTaskAC(id, todolistId))
    }
 
-   const addTask = useCallback((title: string, todolistId: string) => {
+   function addTask(title: string, todolistId: string) {
       dispatch(addTaskAC(title, todolistId))
-   },[])
+   }
 
    function changeStatus(id: string, isDone: boolean, todolistId: string) {
       dispatch(changeTaskStatusAC(id, isDone, todolistId))
