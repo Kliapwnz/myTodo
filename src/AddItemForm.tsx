@@ -8,7 +8,7 @@ type AddItemFormPropsType = {
 }
 
 export function AddItemForm(props: AddItemFormPropsType) {
-
+   console.log("AddItemForm render")
    let [title, setTitle] = useState("")
    let [error, setError] = useState<string | null>(null)
 
