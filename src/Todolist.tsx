@@ -28,6 +28,7 @@ type PropsType = {
 }
 
 export function Todolist(props: PropsType) {
+   console.log("todolist")
    const addTask = useCallback((title: string) => {
       props.addTask(title, props.id);
    }, [props.addTask, props.id])
