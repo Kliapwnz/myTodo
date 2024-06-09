@@ -53,9 +53,9 @@ function AppWithRedux() {
       dispatch(removeTaskAC(id, todolistId))
    }
 
-   function addTask(title: string, todolistId: string) {
+   const addTask = useCallback((title: string, todolistId: string) => {
       dispatch(addTaskAC(title, todolistId))
-   }
+   }, [])
 
    function changeStatus(id: string, isDone: boolean, todolistId: string) {
       dispatch(changeTaskStatusAC(id, isDone, todolistId))
@@ -79,10 +79,10 @@ function AppWithRedux() {
       dispatch(changeTodolistTitleAC(id, title));
    }
 
-   const addTodolist = useCallback ((title: string) => {
+   const addTodolist = useCallback((title: string) => {
       dispatch(addTodolistAC(title));
 
-   },[])
+   }, [])
 
    const [themeMode, setThemeMode] = useState<ThemeMode>('light')
 
